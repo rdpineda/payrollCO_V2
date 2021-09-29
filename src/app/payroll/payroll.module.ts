@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrimeNGModule } from '../prime-ng/prime-ng.module';
 import { SharedModule } from '../shared/shared.module';
 import { CreateNoveltiesComponent } from './components/create-novelties/create-novelties.component';
+import { SaveExtraHoursComponent } from './components/save-extra-hours/save-extra-hours.component';
 
 
 
@@ -14,7 +15,8 @@ import { CreateNoveltiesComponent } from './components/create-novelties/create-n
   declarations: [
     NoveltiesComponent,
     DefinitiveComponent,
-    CreateNoveltiesComponent
+    CreateNoveltiesComponent,
+    SaveExtraHoursComponent
   ],
   imports: [
     CommonModule,
