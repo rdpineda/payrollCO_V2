@@ -1,0 +1,377 @@
+
+<app-header></app-header>
+
+<p-sidebar [(visible)]="visibleSidebar2" position="right" [baseZIndex]="10000">
+    <h3>Right Sidebar</h3>
+</p-sidebar>
+<p-button type="button" class="p-mr-2 absolute bottom-50 right-0 align-items-center justify-content-center p-button-success"
+(click)="visibleSidebar2 = true" icon="pi pi-cog"></p-button>
+<div class="grid">
+    <div class="col-7">
+
+        <div class="font-medium text-2xl text-900 mb-2 m-4">Mi Empresa</div>
+     <div class="grid m-4">
+       
+
+            <div class="col-12 md:col-6 lg:col-3">
+                <p-card class="border-round align-items-stretch cursor-pointer" [style]="{'width': '11rem', 'border-radius': '8px', 'min-height': '150px'}">
+                    <div class="flex justify-content-between mb-3">
+                    <div>
+                        <span class="block text-500 font-medium mb-3">Datos de <br />Nómina</span>
+                    </div>
+                    <div class="flex align-items-center justify-content-center bg-indigo-100 border-round" 
+                                 style="width:2.5rem;height:2.5rem">
+                                <i class="pi pi-credit-card text-indigo-500 text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div>
+                            <span></span>
+                           <span></span>
+                         </div>
+                </p-card>
+                </div>
+
+                <div class="col-12 md:col-6 lg:col-3">
+                    <p-card class="border-round align-items-stretch cursor-pointer" [style]="{'width': '11rem', 'margin-bottom': '0em', 'border-radius': '8px', 'min-height': '150px'}">
+                        <div class="flex justify-content-between mb-3 m-2">
+                        <div>
+                            <span class="block text-500 font-medium mb-3">Estructura Organizativa</span>
+                        </div>
+                        <div class="flex align-items-center justify-content-center bg-orange-100 border-round" 
+                                     style="width:2.5rem;height:2.5rem">
+                                    <i class="pi pi-sitemap text-orange-500 text-xl"></i>
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div>
+                                <span></span>
+                               <span></span>
+                             </div>
+                    </p-card>
+                    </div>
+
+                    <div class="col-12 md:col-6 lg:col-3">
+                        <p-card class="border-round align-items-stretch cursor-pointer" [style]="{'width': '11rem', 'margin-bottom': '0em', 'border-radius': '8px', 'min-height': '150px'}">
+                            <div class="flex justify-content-between mb-3">
+                            <div>
+                                <span class="block text-500 font-medium mb-3">Conceptos de <br />Nómina</span>
+                            </div>
+                            <div class="flex align-items-center justify-content-center bg-green-100 border-round" 
+                                         style="width:2.5rem;height:2.5rem">
+                                        <i class="pi pi-list text-green-500 text-xl"></i>
+                                    </div>
+                                </div>
+                                <div class="mb-2">
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <div>
+                                    <span></span>
+                                   <span></span>
+                                 </div>
+                        </p-card>
+                        </div>
+
+    </div>    
+
+
+
+
+
+    <div class="font-medium text-2xl text-900 mb-3 m-4">Mis Empleados</div>
+     <div class="grid m-4">
+        <div class="col-12 md:col-6 lg:col-3 ">
+        <p-card  routerLink="/employees/list"  class="border-round align-items-stretch cursor-pointer hover:surface-700" 
+                [style]="{'width': '11rem', 'margin-bottom': '0em','border-radius': '8px', 'min-height': '150px'}">
+            <div class="flex justify-content-between mb-3">
+                <div>
+                    <span class="block text-500 font-medium mb-3">Listado de <br />Empleados</span>
+                </div>
+                <div class="flex align-items-center justify-content-center bg-blue-100 border-round" 
+                            style="width:2.5rem;height:2.5rem">
+                            <i class="pi pi-users text-blue-500 text-xl"></i>
+                </div>
+            </div>
+                <div class="mb-2">
+                   <span class="text-blue-500 font-medium"><small>Activos:</small></span>
+                   <span class="text-500"><small>50</small></span>
+                </div>
+                <div>
+                    <span class="text-blue-500 font-medium"><small>Retirados:</small></span>
+                   <span class="text-500"><small>10</small></span>
+                 </div>
+        </p-card>
+        </div>
+
+        <div class="col-12 md:col-6 lg:col-3">
+            <p-card class="border-round align-items-stretch cursor-pointer" [style]="{'width': '11rem', 'margin-bottom': '0em','border-radius': '8px', 'min-height': '150px'}">
+                <div class="flex justify-content-between mb-3">
+                <div>
+                    <span class="block text-500 font-medium mb-3">Dar de Alta a un <br />Empleado</span>
+                </div>
+                <div class="flex align-items-center justify-content-center bg-blue-100 border-round" 
+                             style="width:2.5rem;height:2.5rem">
+                            <i class="pi pi-user-plus text-blue-500 text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                       <span></span>
+                       <span></span>
+                    </div>
+                    <div>
+                        <span></span>
+                       <span></span>
+                     </div>
+            </p-card>
+            </div>
+
+            <div class="col-12 md:col-6 lg:col-3">
+                <p-card class="border-round align-items-stretch cursor-pointer" [style]="{'width': '11rem', 'margin-bottom': '0em','border-radius': '8px', 'min-height': '150px'}">
+                    <div class="flex justify-content-between mb-3">
+                    <div>
+                        <span class="block text-500 font-medium mb-3">Dar de Baja a un <br />Empleado</span>
+                    </div>
+                    <div class="flex align-items-center justify-content-center bg-blue-100 border-round" 
+                                 style="width:2.5rem;height:2.5rem">
+                                <i class="pi pi-user-minus text-blue-500 text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                           <span></span>
+                           <span></span>
+                        </div>
+                        <div>
+                            <span></span>
+                           <span></span>
+                         </div>
+                </p-card>
+                </div>
+
+    </div>    
+
+
+    <div class="font-medium text-2xl text-900 mb-3 m-4">Mis Nóminas</div>
+     <div class="grid m-4">
+      
+        <div class="col-12 md:col-6 lg:col-3">
+            <p-card routerLink="/payroll/novelties" class="border-round align-items-stretch cursor-pointer" [style]="{'width': '11rem', 'margin-bottom': '0em', 'border-radius': '8px', 'min-height': '150px'}">
+                <div class="flex justify-content-between mb-3">
+                <div>
+                    <span class="block text-500 font-medium mb-3">Ordinarias</span>
+                    <!-- <span class="text-500"><small class="text-center">P:{{period[0].year}}</small></span> -->
+                    <span class="text-500"><small class="text-center"></small></span>
+                      
+                </div>
+                <div class="flex align-items-center justify-content-center bg-teal-100 border-round" 
+                             style="width:2.5rem;height:2.5rem">
+                            <i class="pi pi-dollar text-teal-500 text-xl"></i>
+                        </div>
+                    </div>
+                    <!-- <div class="mb-2">
+                        
+                    </div> -->
+                    <div>
+                       <!--  <span class="text-500"><small>Del:{{period[0].initialDate | date: 'dd-MM-YYYY': 'GMT+1'}}<br/></small></span> -->
+
+                        <span class="text-500"><small><br/></small></span>
+
+
+                        <!-- <span class="text-500"><small>al:{{period[0].endDate | date: 'dd-MM-YYYY': 'GMT +1'}}</small></span> -->
+                        <span class="text-500"><small></small></span>
+                    </div>
+            </p-card>
+            </div>  
+
+            <div class="col-12 md:col-6 lg:col-3">
+                <p-card class="border-round align-items-stretch cursor-pointer" [style]="{'width': '11rem', 'border-radius': '8px', 'min-height': '150px'}">
+                    <div class="flex justify-content-between mb-3">
+                    <div>
+                        <span class="block text-500 font-medium mb-3">Especiales</span>
+                    </div>
+                    <div class="flex align-items-center justify-content-center bg-pink-100 border-round" 
+                                 style="width:2.5rem;height:2.5rem">
+                                <i class="pi pi-id-card text-pink-500 text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div>
+                            <span></span>
+                           <span></span>
+                         </div>
+                </p-card>
+                </div>
+
+                <div class="col-12 md:col-6 lg:col-3">
+                    <p-card class="border-round cursor-pointer" [style]="{'width': '11rem', 'margin-bottom': '0em', 'border-radius': '8px', 'min-height': '150px'}">
+                        <div class="flex justify-content-between mb-3">
+                        <div>
+                            <span class="block text-500 font-medium mb-3">Historicos</span>
+                        </div>
+                        <div class="flex align-items-center justify-content-center bg-purple-100 border-round" 
+                                     style="width:2.5rem;height:2.5rem">
+                                    <i class="pi pi-clock text-purple-500 text-xl"></i>
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div>
+                                <span></span>
+                               <span></span>
+                             </div>
+                    </p-card>
+                    </div>
+
+         
+
+    </div>    
+
+    </div>
+    <div class="col">
+
+        <div class="font-medium text-2xl text-900 mb-3 m-4">Mis Reportes</div>
+        <div class="grid m-4">
+         
+           <div class="col-12 md:col-6 lg:col-3">
+               <p-card class="border-round align-items-stretch cursor-pointer" [style]="{'width': '8rem', 'margin-bottom': '0em', 'border-radius': '8px', 'min-height': '50px'}">
+                   <div class="justify-content-between mb-3">
+                   <div>
+                       <span class="block text-500 text-sm mb-3">Movimientos</span>
+                   </div>
+                   <div class="flex align-items-center justify-content-center bg-teal-100 border-round" 
+                                style="width:2.5rem;height:2.5rem">
+                               <i class="pi pi-file-pdf text-teal-500 text-xl"></i>
+                           </div>
+                       </div>
+                       <div class="mb-2">
+                           <span></span>
+                           <span></span>
+                       </div>
+                       <div>
+                           <span></span>
+                          <span></span>
+                        </div>
+               </p-card>
+            </div>
+
+            <div class="col-12 md:col-6 lg:col-3">
+                <p-card class="border-round align-items-stretch cursor-pointer" [style]="{'width': '8rem', 'margin-bottom': '0em', 'border-radius': '8px', 'min-height': '50px'}">
+                    <div class="justify-content-between mb-3">
+                    <div>
+                        <span class="block text-500 text-sm mb-3">Provisiones</span>
+                    </div>
+                    <div class="flex align-items-center justify-content-center bg-teal-100 border-round" 
+                                 style="width:2.5rem;height:2.5rem">
+                                <i class="pi pi-file-pdf text-teal-500 text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div>
+                            <span></span>
+                           <span></span>
+                         </div>
+                </p-card>
+             </div>
+
+               
+ 
+        </div>
+
+
+        <div class="grid m-4">
+         
+            <div class="col-12 md:col-6 lg:col-3">
+                <p-card class="border-round align-items-stretch cursor-pointer" [style]="{'width': '8rem', 'margin-bottom': '0em', 'border-radius': '8px', 'min-height': '50px'}">
+                    <div class="justify-content-between mb-3">
+                    <div>
+                        <span class="block text-500 text-sm mb-3">Volantes de <br/>Pago</span>
+                    </div>
+                    <div class="flex align-items-center justify-content-center bg-teal-100 border-round" 
+                                 style="width:2.5rem;height:2.5rem">
+                                <i class="pi pi-file-pdf text-teal-500 text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div>
+                            <span></span>
+                           <span></span>
+                         </div>
+                </p-card>
+             </div>
+
+             <div class="col-12 md:col-6 lg:col-3">
+                <p-card class="border-round align-items-stretch cursor-pointer" [style]="{'width': '8rem', 'margin-bottom': '0em', 'border-radius': '8px', 'min-height': '50px'}">
+                    <div class="justify-content-between mb-3">
+                    <div>
+                        <span class="block text-500 text-sm mb-3">Certificado de <br/>Ingresos</span>
+                    </div>
+                    <div class="flex align-items-center justify-content-center bg-teal-100 border-round" 
+                                 style="width:2.5rem;height:2.5rem">
+                                <i class="pi pi-file-pdf text-teal-500 text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div>
+                            <span></span>
+                           <span></span>
+                         </div>
+                </p-card>
+             </div>
+                
+  
+         </div>
+
+         <div class="grid m-4">
+         
+            <div class="col-12 md:col-6 lg:col-3">
+                <p-card class="border-round align-items-stretch cursor-pointer" [style]="{'width': '8rem', 'margin-bottom': '0em', 'border-radius': '8px', 'min-height': '50px'}">
+                    <div class="justify-content-between mb-3">
+                    <div>
+                        <span class="block text-500 text-sm mb-3">Maestro de <br/>Empleados</span>
+                    </div>
+                    <div class="flex align-items-center justify-content-center bg-teal-100 border-round" 
+                                 style="width:2.5rem;height:2.5rem">
+                                <i class="pi pi-file-pdf text-teal-500 text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div>
+                            <span></span>
+                           <span></span>
+                         </div>
+                </p-card>
+             </div>
+
+    </div>
+
+
+              
+</div>
+     
+
+
+
+     

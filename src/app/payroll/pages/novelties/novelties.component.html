@@ -1,0 +1,175 @@
+<app-header></app-header>
+
+<div class="card1">
+  
+
+    <p-tabView>
+        <p-tabPanel header="Ingreso de Novedades">
+            <p-dataView #dv [value]="employeeMovementsPayroll" [paginator]="false" [rows]="9" filterBy="name"
+            layout="grid">
+                <ng-template  pTemplate="header">
+                    <div class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between">
+                   
+                        <span class="p-input-icon-left p-mb-2" >
+                            <i class="pi pi-search"></i>
+                        <input #input (keyup)="buscarEmployees( input.value )" class="form-control" type="search" pInputText placeholder="Buscar Empleado..." style="width: 30rem;"> 
+                        </span> 
+                        <div class="flex align-items-center justify-content-center">
+                        
+                                <span class="text-500 font-medium text-xs mr-2">
+                                    
+                                    Periodo: {{period.number}}-{{period.year}}
+                                  
+                                </span>
+                                <div class="flex align-items-center justify-content-center">
+                                    <span class="text-500 font-medium text-xs">
+                                        <p-tag styleClass="p-mr-1" severity="warning" value="Del: {{period.initialDate | date: 'dd-MM-YYYY': 'GMT+1'}} Al: {{period.endDate | date: 'dd-MM-YYYY': 'GMT +1'}}"></p-tag> 
+                                        
+                                   </span>
+                                </div>
+                            </div>
+
+                           
+
+                        
+                       
+                            
+                       
+                       
+                       
+                        <div class="card1 flex justify-content-end flex-wrap">
+                            <p-button class="mr-4" icon="pi pi-user-plus" pTooltip="Nuevo Empleado" tooltipPosition="bottom"></p-button>
+                            <p-button class="mr-2" icon="pi pi-upload" pTooltip="Importar Empleado" tooltipPosition="bottom"></p-button>
+                            <p-button icon="pi pi-download"pTooltip="Descargar Listado Empleado" tooltipPosition="bottom"></p-button>
+                        </div>
+                        
+                        
+                        <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+                    </div>
+                </ng-template>
+                <ng-template let-movements let-i="index" pTemplate="listItem">
+                    <div class="p-col-12">
+                        <div class="product-list-item">
+                            <div class="product-list-detail">
+                          
+                                <div> <img [src]="employee.img" alt="empleado"></div>
+                                <div class="product-name">{{employee.firstName}} {{employee.surname}}</div>
+                                <div class="product-description">{{employee.identification}}</div>
+                                <i class="pi pi-tag product-category-icon"></i><span class="product-category">{{employee.mail}}</span>
+                            </div>
+                            <div class="product-list-action">
+                                <span class="product-price">{{employee.phone}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template  let-employeeMovementPayroll let-i="rowIndex" pTemplate="gridItem">
+                    <!-- <app-get-novelties [employee_id_heredado]="employeeMovementPayroll.employee_id"></app-get-novelties> -->
+                        <div class="product-grid-item card1 surface-0">
+                            <div class="grid mt-2 m-1">
+                                    <div class="p-col-6">
+                                        <img [src]="employeeMovementPayroll.img" alt="empleado">
+                                        <span class="text-500 font-medium text-xs flex justify-content-start mt-3">Salario Basico: {{employeeMovementPayroll.salary | currency:'COP':'symbol-narrow':'1.0-4'}}</span>
+                                       
+                                    </div> 
+                                   
+                                    <div class="p-col-6">
+                                    
+                                        <span class="flex justify-content-end">
+                                            <button pButton pRipple type="button" icon="pi pi-ellipsis-v" class="p-button-rounded p-button-text p-button-sm" (click)="menu.toggle($event)"></button>
+                                           <p-menu #menu [popup]="true" [model]="items"></p-menu>
+                                          
+                                          </span>
+                                        <div class="product-name text-xl text-500 mr-4 text-justify">
+                                            {{employeeMovementPayroll.firstName | titlecase }} {{employeeMovementPayroll.surname | titlecase}}
+                                        
+                                        </div>
+                                        <div class="product-name text-lg text-400 text-justify">{{employeeMovementPayroll.identification}}</div>
+                                        <div class="product-badge product-name text-base text-justify">
+                                        <p-tag styleClass="p-mr-2" severity="success" value=Gerente></p-tag>
+                                        
+                                        </div>
+                                      
+
+                                    </div>
+
+                                      <!-- <div class="p-col-2  border-round">
+                                        
+                                        <button pButton pRipple type="button" icon="pi pi-ellipsis-v" class="p-button-rounded p-button-text" (click)="menu.toggle($event)"></button>
+                                        <p-menu #menu [popup]="true" [model]="items"></p-menu>
+                                    </div> -->
+                          
+                            </div>
+                            <hr>
+                            <div class="grid m-2">
+                                    
+                                    <div>
+                                        <div class="flex col-12">
+                                      <span class="flex align-items-center text-500 font-medium text-xs">Dias Laborados: {{employeeMovementPayroll.daysWork}}</span>
+                                    </div> 
+                                        <div class="flex col-12">
+                                         <span class="flex align-items-center text-500 font-medium text-xs mr-4">Total Salarial: {{employeeMovementPayroll.salaryValue | currency:'COP':'symbol-narrow':'1.0-4'}}
+
+
+                                            <button pButton pRipple type="button" (click)="show(employeeMovementPayroll.employee_id, 'SALARIAL')" label="Ingresar" icon="pi pi-plus" class="p-button-text p-button-warning p-button-sm"></button>
+                                            <button pButton pRipple type="button" (click)="veremployee(employeeMovementPayroll.employee_id)" label="Horas Extras" icon="pi pi-clock" class="p-button-text p-button-sm"></button>
+                                        
+                                        </span>
+                                         
+                                        </div>
+                                        <div class="flex col-12">
+                                         <span class="text-500 font-medium flex align-items-center text-xs">Total No Salarial: {{employeeMovementPayroll.noSalaryValue | currency:'COP':'symbol-narrow':'1.0-4'}}
+                                            <button pButton pRipple type="button" (click)="show(employeeMovementPayroll.employee_id, 'NOSALARIAL')" label="Ingresar" icon="pi pi-plus" class="p-button-text p-button-warning p-button-sm"></button>
+                                         </span>
+                                        </div>
+                                    
+                                    </div>
+                          
+                            </div>
+
+                             <hr>
+                            <div class="grid m-2 mt-2">
+                                    
+                                    <div>
+                                        <div class="flex col-12">
+                                         <span class="text-500 font-medium mb-2 flex align-items-center text-xs">Total Deducciones: {{employeeMovementPayroll.deductionValue | currency:'COP':'symbol-narrow':'1.0-4'}}
+                                            <button pButton pRipple type="button" (click)="show(employeeMovementPayroll.employee_id, 'DEDUCCION')" label="Ingresar" icon="pi pi-plus" class="p-button-text p-button-warning p-button-sm"></button>
+                                         </span>
+                                        </div>
+                                    
+                                    
+                                    </div>
+                          
+                            </div>
+
+                              <hr>
+                             
+                            <div class="grid">
+                                    
+                                    <div class="col-8 text-right">
+                                        <div class="mb-3 text-right">
+                                            <div class="text-900 font-medium text-xl text-right">Neto a Pagar: {{employeeMovementPayroll.salaryValue + employeeMovementPayroll.noSalaryValue - employeeMovementPayroll.deductionValue | currency:'COP':'symbol-narrow':'1.0-4'}}</div>
+                                        </div>
+                                    </div>
+                                     <div class="col-4 text-base">
+                                
+                                    </div>
+                          
+                            </div>
+        
+                            </div>
+                      
+                    
+                </ng-template>
+            </p-dataView>
+        </p-tabPanel>
+        <p-tabPanel header="Nomina Definiva">
+            Content 2
+        </p-tabPanel>
+        
+    </p-tabView>  
+
+</div>
+
+
+

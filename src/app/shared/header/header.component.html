@@ -1,0 +1,32 @@
+
+
+<p-menubar [model]="items" styleClass="end">
+     <ng-template pTemplate="start">
+        
+            <img src="assets/images/logoletra2.png" height="40" class="p-mr-2">
+            <button pButton routerLink="/dashboard" pRipple type="button" icon="pi pi-home" class="p-button-rounded mx-6" ></button>
+          
+            <span *ngIf="company1.img"><img class="p-mr-2" [src]="company1.img" height="40" style="border-radius: 50%" alt="user"></span>
+            <span *ngIf="!company1.img"> <img class="p-mr-2"src="assets/images/SIN-IMAGEN.jpg" height="40" class="p-mr-2" style="border-radius: 50%"></span>
+            <span class="mx-2 m pr-8 mb-3">{{empresa.name}}</span>
+    </ng-template>    
+ 
+ 
+    <p-splitButton label="Save" icon="pi pi-plus"></p-splitButton>
+ 
+
+   
+
+    <ng-template pTemplate="end">
+        <span class="align-items-center text-center">Bienvenido:</span>
+        <span class="mx-2 align-items-center text-center">{{usuario.name | titlecase}}</span>
+        <span *ngIf="usuario.img"><img [src]="usuario.img" height="40" class="p-mr-2" style="border-radius: 50%" alt="user"></span>
+        <span *ngIf="!usuario.img"> <img src="assets/images/no-image.png" height="40" class="p-mr-2" style="border-radius: 50%"></span>
+        
+        <p-button label="Logout" icon="pi pi-power-off" styleClass="p-button-link"></p-button>
+    </ng-template>
+</p-menubar>
+
+
+
+
