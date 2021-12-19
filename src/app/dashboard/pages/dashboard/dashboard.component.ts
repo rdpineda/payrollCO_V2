@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   visibleSidebar2: any;
   empresaseleccionada: any = {};
   usuario: any = {};
-  period: any =[];
+  period: any =[0];
   empresa: any = {};
   company: any;
   yearPeriod!: number;
@@ -29,7 +29,6 @@ export class DashboardComponent implements OnInit {
 
 
     this.company = this._usuarioService.empresas;
-    console.log(this.company, 'dashboar')
     this.empresaseleccionada = localStorage.getItem('empresaseleccionada')!;
     this.usuario = JSON.parse(localStorage.getItem('usuario')!);
 
@@ -43,31 +42,37 @@ export class DashboardComponent implements OnInit {
       }
     }
 
-    this.yearPeriod = new Date().getFullYear();
-     this.createdPeriod(this.empresa.id, this.yearPeriod) 
-    this.getPeriodByProcess( this.empresa.id )
-    console.log(this.yearPeriod, 'const')
+    
+     this.createdPeriod(this.empresa.id, this.yearPeriod = new Date().getFullYear()) 
+   
+     
+    
   }
 
  
   ngOnInit(): void {
 
+    this.getPeriodByProcess( this.empresa.id )
     
-    
-    
+    console.log(this.period[0].year, 'init')
     /* this.getPeriodByProcess( this.empresa.id ) */
     
   
   }
 
   
-  getPeriodByProcess( id: string ) {
+   getPeriodByProcess( id: string ) {
+
+    /* let variable = await this._periodService.getPeriodByCompanyByProcess( id ) */
     
-    this._periodService.getPeriodByCompanyByProcess( id )
-        .subscribe( (period: any) => {
+     this._periodService.getPeriodByCompanyByProcess( id )
+        .subscribe ( (period: any) => {
           this.period[0] = period[0];
-          console.log('periodo', this.period[0].number, this.period[0])
-        });
+          console.log(this.period[0].year)
+        }); 
+
+        
+        
 
   }
 

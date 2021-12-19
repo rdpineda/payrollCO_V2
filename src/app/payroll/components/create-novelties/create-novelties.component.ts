@@ -183,7 +183,6 @@ getConceptNovelty(id: string) {
   
 } 
 
-
 getPeriodByProcess( id: string ) {
     
   this._getEmployeeService.recibirGroup.subscribe(group =>{
@@ -199,7 +198,8 @@ getPeriodByProcess( id: string ) {
          
         this._getEmployeeService.recibir.subscribe(dato =>{
           this.employeeSelect = dato
-          this.getMovementsNovelty( this.employeeSelect, this.empresa.id, this.period[0].id ); 
+          
+this.getMovementsNovelty( this.employeeSelect, this.empresa.id, this.period[0].id ); 
        })
 
        
@@ -210,7 +210,7 @@ getPeriodByProcess( id: string ) {
       });
 
 }
-
+ 
 getMovementPayrollByEmployee(id: string, period: string ) {
   this._movementService.getMovementsPayrollByEmployee( id, period )
       .subscribe( employeeMovementsPayroll => {
@@ -256,7 +256,7 @@ getEmployeeById( id: string) {
 
 saveNovelties(data: any){
   
-
+console.log('entro por aca')
   this.noveltiesS =  JSON.parse(JSON.stringify(data,['concept_id', 'value'])) 
 
  

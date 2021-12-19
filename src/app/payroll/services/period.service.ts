@@ -50,10 +50,10 @@ export class PeriodService {
 
 
 
-    getPeriodByCompanyByProcess( id: string){
+     getPeriodByCompanyByProcess( id: string){
 
         let url = this.URL_SERVICIOS + '/period?company_id=' + id + '&description=Proceso';
-        return this.http.get( url, {headers: this.headers} )
+        return  this.http.get ( url, {headers: this.headers} )
             .map( (resp: any={}) => {
               return resp;
               

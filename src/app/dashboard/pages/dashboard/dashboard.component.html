@@ -1,7 +1,7 @@
 
 <app-header></app-header>
 
-<p-sidebar [(visible)]="visibleSidebar2" position="right" [baseZIndex]="10000">
+ <p-sidebar [(visible)]="visibleSidebar2" position="right" [baseZIndex]="10000">
     <h3>Right Sidebar</h3>
 </p-sidebar>
 <p-button type="button" class="p-mr-2 absolute bottom-50 right-0 align-items-center justify-content-center p-button-success"
@@ -9,7 +9,7 @@
 <div class="grid">
     <div class="col-7">
 
-        <div class="font-medium text-2xl text-900 mb-2 m-4">Mi Empresa</div>
+        <div class="font-medium text-2xl text-700 mb-2 m-4">Mi Empresa</div>
      <div class="grid m-4">
        
 
@@ -85,7 +85,7 @@
 
 
 
-    <div class="font-medium text-2xl text-900 mb-3 m-4">Mis Empleados</div>
+    <div class="font-medium text-2xl text-700 mb-3 m-4">Mis Empleados</div>
      <div class="grid m-4">
         <div class="col-12 md:col-6 lg:col-3 ">
         <p-card  routerLink="/employees/list"  class="border-round align-items-stretch cursor-pointer hover:surface-700" 
@@ -157,7 +157,7 @@
     </div>    
 
 
-    <div class="font-medium text-2xl text-900 mb-3 m-4">Mis Nóminas</div>
+    <div class="font-medium text-2xl text-700 mb-3 m-4">Mis Nóminas</div>
      <div class="grid m-4">
       
         <div class="col-12 md:col-6 lg:col-3">
@@ -165,8 +165,8 @@
                 <div class="flex justify-content-between mb-3">
                 <div>
                     <span class="block text-500 font-medium mb-3">Ordinarias</span>
-                    <!-- <span class="text-500"><small class="text-center">P:{{period[0].year}}</small></span> -->
-                    <span class="text-500"><small class="text-center"></small></span>
+                    <span class="text-500"><small class="text-center">P:{{period[0].year}}-{{period[0].number}}</small></span>
+                    
                       
                 </div>
                 <div class="flex align-items-center justify-content-center bg-teal-100 border-round" 
@@ -178,12 +178,8 @@
                         
                     </div> -->
                     <div>
-                       <!--  <span class="text-500"><small>Del:{{period[0].initialDate | date: 'dd-MM-YYYY': 'GMT+1'}}<br/></small></span> -->
-
-                        <span class="text-500"><small><br/></small></span>
-
-
-                        <!-- <span class="text-500"><small>al:{{period[0].endDate | date: 'dd-MM-YYYY': 'GMT +1'}}</small></span> -->
+                        <span class="text-500"><small>Del:{{period[0].initialDate | date: 'dd-MM-YYYY': 'GMT+1'}}<br/></small></span>
+                        <span class="text-500"><small>al:{{period[0].endDate | date: 'dd-MM-YYYY': 'GMT +1'}}</small></span>
                         <span class="text-500"><small></small></span>
                     </div>
             </p-card>
@@ -237,14 +233,14 @@
 
     </div>    
 
-    </div>
-    <div class="col">
+   
+<!--   aca empieza otra columna -->
 
-        <div class="font-medium text-2xl text-900 mb-3 m-4">Mis Reportes</div>
+        <div class="font-medium text-2xl text-700 mb-3 m-4">Mis Reportes</div>
         <div class="grid m-4">
          
            <div class="col-12 md:col-6 lg:col-3">
-               <p-card class="border-round align-items-stretch cursor-pointer" [style]="{'width': '8rem', 'margin-bottom': '0em', 'border-radius': '8px', 'min-height': '50px'}">
+               <p-card class="border-round align-items-stretch cursor-pointer" [style]="{'width': '11rem', 'margin-bottom': '0em', 'border-radius': '8px', 'min-height': '150px'}">
                    <div class="justify-content-between mb-3">
                    <div>
                        <span class="block text-500 text-sm mb-3">Movimientos</span>
@@ -266,7 +262,7 @@
             </div>
 
             <div class="col-12 md:col-6 lg:col-3">
-                <p-card class="border-round align-items-stretch cursor-pointer" [style]="{'width': '8rem', 'margin-bottom': '0em', 'border-radius': '8px', 'min-height': '50px'}">
+                <p-card class="border-round align-items-stretch cursor-pointer" [style]="{'width': '11rem', 'margin-bottom': '0em', 'border-radius': '8px', 'min-height': '150px'}">
                     <div class="justify-content-between mb-3">
                     <div>
                         <span class="block text-500 text-sm mb-3">Provisiones</span>
@@ -287,15 +283,8 @@
                 </p-card>
              </div>
 
-               
- 
-        </div>
-
-
-        <div class="grid m-4">
-         
-            <div class="col-12 md:col-6 lg:col-3">
-                <p-card class="border-round align-items-stretch cursor-pointer" [style]="{'width': '8rem', 'margin-bottom': '0em', 'border-radius': '8px', 'min-height': '50px'}">
+             <div class="col-12 md:col-6 lg:col-3">
+                <p-card class="border-round align-items-stretch cursor-pointer" [style]="{'width': '11rem', 'margin-bottom': '0em', 'border-radius': '8px', 'min-height': '150px'}">
                     <div class="justify-content-between mb-3">
                     <div>
                         <span class="block text-500 text-sm mb-3">Volantes de <br/>Pago</span>
@@ -315,9 +304,16 @@
                          </div>
                 </p-card>
              </div>
+ 
+        </div>
+
+
+        <div class="grid m-4">
+         
+            
 
              <div class="col-12 md:col-6 lg:col-3">
-                <p-card class="border-round align-items-stretch cursor-pointer" [style]="{'width': '8rem', 'margin-bottom': '0em', 'border-radius': '8px', 'min-height': '50px'}">
+                <p-card class="border-round align-items-stretch cursor-pointer" [style]="{'width': '11rem', 'margin-bottom': '0em', 'border-radius': '8px', 'min-height': '150px'}">
                     <div class="justify-content-between mb-3">
                     <div>
                         <span class="block text-500 text-sm mb-3">Certificado de <br/>Ingresos</span>
@@ -338,13 +334,8 @@
                 </p-card>
              </div>
                 
-  
-         </div>
-
-         <div class="grid m-4">
-         
-            <div class="col-12 md:col-6 lg:col-3">
-                <p-card class="border-round align-items-stretch cursor-pointer" [style]="{'width': '8rem', 'margin-bottom': '0em', 'border-radius': '8px', 'min-height': '50px'}">
+             <div class="col-12 md:col-6 lg:col-3">
+                <p-card class="border-round align-items-stretch cursor-pointer" [style]="{'width': '11rem', 'margin-bottom': '0em', 'border-radius': '8px', 'min-height': '150px'}">
                     <div class="justify-content-between mb-3">
                     <div>
                         <span class="block text-500 text-sm mb-3">Maestro de <br/>Empleados</span>
@@ -364,12 +355,26 @@
                          </div>
                 </p-card>
              </div>
+  
+         </div>
 
-    </div>
+        
 
 
               
 </div>
+
+
+
+
+
+
+
+
+
+
+
+    
      
 
 

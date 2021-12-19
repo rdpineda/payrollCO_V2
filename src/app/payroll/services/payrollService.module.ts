@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PayrollService, PeriodService, GetEmployeeService } from '../services/payrollService.index';
+import { PayrollService, PeriodService, GetEmployeeService, AbsenteeService } from '../services/payrollService.index';
 
 
 
@@ -16,7 +16,9 @@ import { PayrollService, PeriodService, GetEmployeeService } from '../services/p
   providers: [
     PeriodService,
     PayrollService,
-    GetEmployeeService, 
+    GetEmployeeService,
+    AbsenteeService 
+
   ],
   declarations: [],
  

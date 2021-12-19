@@ -11,11 +11,14 @@ import { Period} from '../../models/period.model'
 import { PeriodService } from '../../services/payrollService.index';
 import { PayrollService } from '../../services/payrollService.index';
 import { CreateNoveltiesComponent } from '../../components/create-novelties/create-novelties.component';
-
+import { SaveExtraHoursComponent } from '../../components/save-extra-hours/save-extra-hours.component';
+import { SaveAbsenteeHistoryComponent } from '../../components/save-absentee-history/save-absentee-history.component';
 import {MenuItem} from 'primeng/api';
 import {DialogService, DynamicDialogRef} from 'primeng/dynamicdialog';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { GetEmployeeService } from '../../services/get-employee.service';
+
+declare var $: any;
 
 
 @Component({
@@ -34,7 +37,8 @@ export class NoveltiesComponent implements OnInit {
 
 
   ref!: DynamicDialogRef;
-  
+  ref1!: DynamicDialogRef;
+
   items!: MenuItem[];
   movements: any = {};
   employee: any = {};
@@ -52,7 +56,10 @@ export class NoveltiesComponent implements OnInit {
   empresa: any = {};
   concept: any = {};
 
+  indexTab: number = 0;
+
   
+
   forma: FormGroup = this.fb.group({
    
   });
@@ -118,8 +125,21 @@ export class NoveltiesComponent implements OnInit {
 
    }
 
+  
 
-   getPeriodByProcess( id: string ) {
+   openNext() {
+    this.indexTab = (this.indexTab === 2) ? 0 : this.indexTab + 1;
+    
+
+    $(document).ready(function() {
+      $("#tabDef").disabled = 'true';
+    });
+
+    
+
+}
+
+    getPeriodByProcess( id: string ) {
     
     this._periodService.getPeriodByCompanyByProcess( id)
         .subscribe( (period: any={}) => {
@@ -132,7 +152,7 @@ export class NoveltiesComponent implements OnInit {
           }
         });
 
-  }
+  } 
   
 
   getMovementByPeriod( id: string ) {
@@ -236,6 +256,49 @@ export class NoveltiesComponent implements OnInit {
       this.getMovementPayrollByEmployee( this.empresa.id, this.period[0].id );
   });
   } 
+
+  ngOnDestroy() {
+    if (this.ref) {
+        this.ref.close();
+    }
+}
+
+
+  showOverTime(employeeCard: string) {
+    this.ref= this.dialogService.open(SaveExtraHoursComponent,{
+        header: 'Ingreso Horas Extras y Recargos',
+        width: '50%',
+        contentStyle: {"max-height": "500px", "overflow": "auto"},
+        baseZIndex: 10000
+        
+    });
+    
+     this._getEmployeeService.enviar(employeeCard);
+    
+
+    this.ref.onClose.subscribe(() => {
+      this.getMovementPayrollByEmployee( this.empresa.id, this.period[0].id );
+  });
+  } 
+
+  showAbsentee(employeeCard: string) {
+    this.ref= this.dialogService.open(SaveAbsenteeHistoryComponent,{
+        header: 'Ingreso de Ausentismos',
+        width: '80%',
+        contentStyle: {"max-height": "500px", "overflow": "auto"},
+        baseZIndex: 10000
+        
+    });
+    
+     this._getEmployeeService.enviar(employeeCard);
+    
+
+    this.ref.onClose.subscribe(() => {
+      
+  });
+  } 
+
+
   
   veremployee(idx: number){
    console.log('empleado', idx) 

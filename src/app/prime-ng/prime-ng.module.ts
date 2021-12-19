@@ -24,7 +24,13 @@ import { MenuModule } from 'primeng/menu';
 import { TieredMenuModule } from 'primeng/tieredmenu';
 import { DividerModule } from 'primeng/divider';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { DialogModule } from 'primeng/dialog';
 import { ToastModule } from 'primeng/toast';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { CalendarModule } from 'primeng/calendar';
+
 
 
 
@@ -59,8 +65,13 @@ import { ToastModule } from 'primeng/toast';
     TieredMenuModule,
     DividerModule,
     DynamicDialogModule,
-    ToastModule 
-    
+    ToastModule,
+    ScrollPanelModule,
+    OverlayPanelModule,
+    DialogModule,
+    ConfirmDialogModule,
+    CalendarModule
+
 
   ]
 })

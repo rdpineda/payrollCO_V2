@@ -8,6 +8,7 @@ import { PrimeNGModule } from '../prime-ng/prime-ng.module';
 import { SharedModule } from '../shared/shared.module';
 import { CreateNoveltiesComponent } from './components/create-novelties/create-novelties.component';
 import { SaveExtraHoursComponent } from './components/save-extra-hours/save-extra-hours.component';
+import { SaveAbsenteeHistoryComponent } from './components/save-absentee-history/save-absentee-history.component';
 
 
 
@@ -16,7 +17,8 @@ import { SaveExtraHoursComponent } from './components/save-extra-hours/save-extr
     NoveltiesComponent,
     DefinitiveComponent,
     CreateNoveltiesComponent,
-    SaveExtraHoursComponent
+    SaveExtraHoursComponent,
+    SaveAbsenteeHistoryComponent
   ],
   imports: [
     CommonModule,

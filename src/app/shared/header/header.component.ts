@@ -85,8 +85,9 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
 
     this.items = [
+      
+
       {
-          label: 'Menú',
           items: [{
                   label: 'Mi perfil', 
                   icon: 'pi pi-fw pi-plus',
@@ -96,8 +97,9 @@ export class HeaderComponent implements OnInit {
               {label: 'Logout'},
           ]
       },
+      
   
-  ];
+  ]; 
   
    /*  this._modalUploadService.notificacion
     .subscribe( () => this.cargarCompanySelect(this.empresa.id)); */
