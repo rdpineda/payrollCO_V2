@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CompanyService,  ConceptService, ProductService } from './companyservice.index';
+import { CompanyService,  ConceptService, ProductService } from './companyService.index';
 
 
 
@@ -19,4 +19,4 @@ import { CompanyService,  ConceptService, ProductService } from './companyservic
   declarations: [],
  
 })
-export class CompanyserviceModule { }
+export class CompanyServiceModule { }

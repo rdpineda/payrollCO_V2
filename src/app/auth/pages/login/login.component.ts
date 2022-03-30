@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
   }
 
   ingresar( forma: NgForm ){
-  
+    console.log('usuario logueado')
   if (forma.invalid){
     return;
   }

@@ -5,13 +5,16 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
-import { CompanyserviceModule } from './companies/services/companyservice.module';
+import { CompanyServiceModule } from './companies/services/companyService.module';
 import { EmployeeserviceModule } from './employees/services/employeeService.module';
 import { PayrollModule } from './payroll/payroll.module';
 import localeES from '@angular/common/locales/en';
 import { registerLocaleData } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
-registerLocaleData(localeES, 'en');
+import { Ng2PageScrollModule } from 'ng2-page-scroll';
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+
+registerLocaleData(localeES, 'es');
 
 
 
@@ -31,10 +34,13 @@ registerLocaleData(localeES, 'en');
     AppRoutingModule,
     HttpClientModule,
     SharedModule,
-    CompanyserviceModule,
+    CompanyServiceModule,
     EmployeeserviceModule,
     PayrollModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    Ng2PageScrollModule,
+    NgxPageScrollCoreModule 
+   
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'en'}

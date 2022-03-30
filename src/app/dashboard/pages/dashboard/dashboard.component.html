@@ -14,7 +14,7 @@
        
 
             <div class="col-12 md:col-6 lg:col-3">
-                <p-card class="border-round align-items-stretch cursor-pointer" [style]="{'width': '11rem', 'border-radius': '8px', 'min-height': '150px'}">
+                <p-card routerLink="/companies/config"  class="border-round align-items-stretch cursor-pointer" [style]="{'width': '11rem', 'border-radius': '8px', 'min-height': '150px'}">
                     <div class="flex justify-content-between mb-3">
                     <div>
                         <span class="block text-500 font-medium mb-3">Datos de <br />Nómina</span>
@@ -178,7 +178,7 @@
                         
                     </div> -->
                     <div>
-                        <span class="text-500"><small>Del:{{period[0].initialDate | date: 'dd-MM-YYYY': 'GMT+1'}}<br/></small></span>
+                        <span class="text-500"><small>Del:{{period[0].initialDate | date: 'dd-MM-YYYY': 'GMT +12'}}<br/></small></span>
                         <span class="text-500"><small>al:{{period[0].endDate | date: 'dd-MM-YYYY': 'GMT +1'}}</small></span>
                         <span class="text-500"><small></small></span>
                     </div>

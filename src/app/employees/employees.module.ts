@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EmployeesRoutingModule } from './employees-routing.module';
 import { PrimeNGModule } from '../prime-ng/prime-ng.module';
+import { Ng2PageScrollModule } from 'ng2-page-scroll';
+
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListComponent } from './pages/list/list.component';
@@ -23,7 +25,9 @@ import { EmployeeCardListComponent } from './components/employee-card-list/emplo
     PrimeNGModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    Ng2PageScrollModule
+    
   ]
 })
 export class EmployeesModule { }

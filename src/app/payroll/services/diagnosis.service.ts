@@ -21,7 +21,7 @@ import { data } from 'jquery';
 @Injectable({
   providedIn: 'root'
 })
-export class AbsenteeService {
+export class DiagnosisService {
 
 private URL_SERVICIOS: string = environment.URL_SERVICIOS;
 public headers = new HttpHeaders();
@@ -40,34 +40,11 @@ public headers = new HttpHeaders();
     
  
 
-     getAbsenteeType(){
-      let url = this.URL_SERVICIOS + '/absenteeTypes';
-      
+     getDiagnosis(){
+      let url = this.URL_SERVICIOS + '/diagnosis';
       return  this.http.get( url, {headers: this.headers} )
           .map( (resp: any) => {
-            console.log('servicio tipos', resp)
             return resp;
-          });
-    }
-
-    getAbsenteeTypeById(id: string){
-      let url = this.URL_SERVICIOS + '/absenteeTypes?id=' + id;
-      
-      return  this.http.get( url, {headers: this.headers} )
-          .map( (resp: any) => {
-            console.log('servicio tipos', resp)
-            return resp;
-          });
-    }
-
-    getAbsenteeByEmployeeByPeriod(employee_id: string, iniPeriod:Date, endPeriod:Date){
-      let url = this.URL_SERVICIOS + '/absenteeHistories/absenteePeriodByEmployee?employee_id=' + employee_id + '&iniPeriod=' + iniPeriod + '&endPeriod=' + endPeriod;
-      console.log(url)
-      return  this.http.get( url, {headers: this.headers} )
-          .map( (resp: any) => {
-            console.log('servicio',resp)
-            return resp;
-            
           });
     }
 

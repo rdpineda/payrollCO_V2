@@ -1,14 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../../auth/services/authservice.index';
-import { CompanyService } from '../../companies/services/companyservice.index';
+import { CompanyService } from '../../companies/services/companyService.index';
 import Swal from 'sweetalert2';
 import { Period } from '../models/period.model';
-
 import { Router } from '@angular/router';
-
 import { Observable } from 'rxjs';
-
 import { throwError } from 'rxjs';
 import { getLocaleDateFormat } from '@angular/common';
 import { environment } from 'src/environments/environment';

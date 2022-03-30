@@ -13,7 +13,7 @@
 
 
         
-        <p-table [value]="employeeAbsentee" responsiveLayout="scroll">
+        <p-table [value]="absenteeEmployee" responsiveLayout="scroll">
             <ng-template pTemplate="header">
                 <tr>
                     <th>Tipo</th>
@@ -26,10 +26,10 @@
             </ng-template>
             <ng-template pTemplate="body" let-absentee>
                 <tr>
-                    <td>{{absentee.code}}</td>
-                    <td>{{absentee.name}}</td>
-                    <td>{{absentee.category}}</td>
-                    <td>{{absentee.quantity}}</td>
+                    <td>{{absentee.absenteeType.code}}</td>
+                    <td>{{absenteeTypeId.description}}</td>
+                    <td>{{absentee.initialAbsencesDate}}</td>
+                    <td>{{absentee.endAbsencesDate}}</td>
                     <td>{{absentee.quantity}}</td>
                     <td><button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editProduct(absentee)"></button>
                         <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteProduct(absentee)"></button>
@@ -50,13 +50,13 @@
 
 
 
-<p-dialog [(visible)]="absenteeDialog" [style]="{width: '1000px'}" label="Top" header="Detalle del Ausentismo" [modal]="true" styleClass="p-fluid">
+<p-dialog [(visible)]="absenteeDialog" [style]="{width: '1000px'}" header="Detalle del Ausentismo" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
 
         <div class="field grid">
             <label for="absenteeType" class="col-12 mb-1 md:col-2 md:mb-0">Tipos de Ausentismo:</label>
             <div class="col-12 md:col-4">
-                <select [(ngModel)]="employeeAbsentee.id" class="form-control form-control-sm w-full"   
+                <select [(ngModel)]="absenteeEmployee.id" class="form-control form-control-sm w-full"   
                     name="concept" 
                     id="concept" 
                     style="border-radius: 0.2rem;width: 20rem; height:2rem ; border-width: 1px; border-color:lightgray;  font-family: Arial, Helvetica, sans-serif; font-size: 1rem;">         
@@ -67,18 +67,18 @@
             </div>
             <label for="initialDate" class="col-12 mb-1 md:col-2 md:mb-0">Base pago:</label>
             <div class="col-12 md:col-4">
-                <p-calendar inputId="initial" [(ngModel)]="employeeAbsentee.id"></p-calendar>
+                <p-calendar inputId="initial" [(ngModel)]="absenteeEmployee.id"></p-calendar>
             </div>
         </div>
 
         <div class="field grid">
             <label for="initialDate"  class="col-12 mb-2 md:col-2 md:mb-0">Fecha Inicial:</label>
             <div class="col-12 md:col-4">
-                <p-calendar inputId="initial" id="inidate" [(ngModel)]="employeeAbsentee.id"></p-calendar>
+                <p-calendar inputId="initial" id="inidate" [(ngModel)]="absenteeEmployee.id"></p-calendar>
             </div>
             <label for="endDate"  class="col-12 mb-2 md:col-2 md:mb-0">Fecha Final:</label>
             <div class="col-12 md:col-4">
-                <p-calendar inputId="end" id="enddate" [(ngModel)]="employeeAbsentee.id"></p-calendar>
+                <p-calendar inputId="end" id="enddate" [(ngModel)]="absenteeEmployee.id"></p-calendar>
             </div>
         </div>
 
@@ -99,14 +99,14 @@
         </div>
 
         <div class="field grid">
-            <label for="absenteeType" class="col-12 mb-2 md:col-2 md:mb-0">Diagnostico:</label>
+            <label for="diagnosis" class="col-12 mb-2 md:col-2 md:mb-0">Diagnostico:</label>
             <div class="col-12 md:col-10">
-                <select [(ngModel)]="employeeAbsentee.id" class="form-control form-control-sm w-full"   
-                    name="concept" 
-                    id="concept" 
+                <select [(ngModel)]="absenteeEmployee.diag" class="form-control form-control-sm w-full"   
+                    name="diagnosis" 
+                    id="diagnosis" 
                     style="border-radius: 0.2rem;width: 20rem; height:2rem ; border-width: 1px; border-color:lightgray;  font-family: Arial, Helvetica, sans-serif; font-size: 1rem;">         
-                <option *ngFor="let type of absenteeType" [value]="type.id">
-                  <small>{{type.code}}-{{type.description}}</small> 
+                <option *ngFor="let diag of diagnosis" [value]="diag.id">
+                  <small>{{diag.code}}-{{diag.description}}</small> 
                </option>
             </select>
             </div>

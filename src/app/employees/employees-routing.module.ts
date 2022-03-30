@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, ExtraOptions } from '@angular/router';
 import { ListComponent } from './pages/list/list.component';
 
 import { LoginComponent } from '../auth/pages/login/login.component';
@@ -23,12 +23,14 @@ const routes: Routes = [
         component: LoginComponent
       },
       {
-        path: 'prueba1',
+        path: ':id/#p9',
         component: EmployeeComponent
       }
     ]
   }
 ]
+
+
 
 @NgModule({
   

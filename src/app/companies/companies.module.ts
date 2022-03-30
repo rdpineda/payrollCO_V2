@@ -4,7 +4,8 @@ import { CompaniesComponent } from './pages/companies/companies.component';
 import { CompaniesRoutingModule } from './companies-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrimeNGModule } from '../prime-ng/prime-ng.module';
-
+import { SharedModule } from '../shared/shared.module';
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 
 
 
@@ -19,7 +20,9 @@ import { PrimeNGModule } from '../prime-ng/prime-ng.module';
     CompaniesRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    PrimeNGModule
+    PrimeNGModule,
+    SharedModule,
+    NgxPageScrollCoreModule
    
     
   ]

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../../auth/services/authservice.index';
-import { CompanyService } from '../../companies/services/companyservice.index';
+import { CompanyService } from '../../companies/services/companyService.index';
 import { PeriodService } from '../services/payrollService.index'
 import Swal from 'sweetalert2';
 import { Period } from '../models/period.model';

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { CompanyService } from '../../../companies/services/companyservice.index';
+import { CompanyService } from '../../../companies/services/companyService.index';
 import { Company } from '../../../companies/models/company.model';
 /* import {MessageService, SelectItem } from 'primeng/api'; */
 import { EmployeeService } from '../../../employees/services/employeeService.index';
@@ -10,6 +10,7 @@ import { Movements } from '../../models/movements.model';
 import { Period} from '../../models/period.model'
 import { PeriodService } from '../../services/payrollService.index';
 import { PayrollService } from '../../services/payrollService.index';
+import { AbsenteeService } from '../../services/absentee.service';
 import { CreateNoveltiesComponent } from '../../components/create-novelties/create-novelties.component';
 import { SaveExtraHoursComponent } from '../../components/save-extra-hours/save-extra-hours.component';
 import { SaveAbsenteeHistoryComponent } from '../../components/save-absentee-history/save-absentee-history.component';
@@ -48,7 +49,7 @@ export class NoveltiesComponent implements OnInit {
   employeeMovementsPayroll: any = [];
   period: any = {};
   empleado!: string;
-  
+  absenteeEmployee: any = {};
   busqueda = '';
   company: any;
   empresaseleccionada: any = {};
@@ -73,6 +74,7 @@ export class NoveltiesComponent implements OnInit {
                public _movementService: PayrollService,
               public dialogService: DialogService,
               public _getEmployeeService: GetEmployeeService, 
+              private _absenteeService: AbsenteeService,
               private fb: FormBuilder,
             
               

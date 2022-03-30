@@ -6,8 +6,8 @@ import { Concept } from '../../../companies/models/concept.model';
 import { Company } from '../../../companies/models/company.model';
 import Swal from 'sweetalert2';
 import { AuthService } from '../../services/authservice.index';
-import { ConceptService } from '../../../companies/services/companyservice.index';
-import { CompanyService } from '../../../companies/services/companyservice.index';
+import { ConceptService } from '../../../companies/services/companyService.index';
+import { CompanyService } from '../../../companies/services/companyService.index';
 
 @Component({
   selector: 'app-register',

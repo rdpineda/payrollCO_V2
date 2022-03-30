@@ -30,6 +30,9 @@ import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { CalendarModule } from 'primeng/calendar';
+import { PanelModule } from 'primeng/panel';
+import { TabMenuModule } from 'primeng/tabmenu';
+import { MenuItem } from 'primeng/api';
 
 
 
@@ -70,7 +73,10 @@ import { CalendarModule } from 'primeng/calendar';
     OverlayPanelModule,
     DialogModule,
     ConfirmDialogModule,
-    CalendarModule
+    CalendarModule,
+    PanelModule,
+    TabMenuModule,
+    
 
 
   ]
