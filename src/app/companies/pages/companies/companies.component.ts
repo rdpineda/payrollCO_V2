@@ -12,6 +12,7 @@ import { DOCUMENT } from '@angular/common';
 import { Inject } from '@angular/core';
 import { PageScrollService } from 'ngx-page-scroll-core';
 
+
 @Component({
   selector: 'app-companies',
   templateUrl: './companies.component.html',
