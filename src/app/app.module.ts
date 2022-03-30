@@ -11,8 +11,8 @@ import { PayrollModule } from './payroll/payroll.module';
 import localeES from '@angular/common/locales/en';
 import { registerLocaleData } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
-import { Ng2PageScrollModule } from 'ng2-page-scroll';
-import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+/* import { Ng2PageScrollModule } from 'ng2-page-scroll';
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core'; */
 
 registerLocaleData(localeES, 'es');
 
@@ -38,8 +38,8 @@ registerLocaleData(localeES, 'es');
     EmployeeserviceModule,
     PayrollModule,
     DashboardRoutingModule,
-    Ng2PageScrollModule,
-    NgxPageScrollCoreModule 
+   /*  Ng2PageScrollModule,
+    NgxPageScrollCoreModule  */
    
   ],
   providers: [
