@@ -21,8 +21,8 @@ import { SharedModule } from '../shared/shared.module';
     FormsModule,
     ReactiveFormsModule,
     PrimeNGModule,
-    SharedModule
-   
+    SharedModule,
+    
     
   ]
 })

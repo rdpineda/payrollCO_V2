@@ -33,6 +33,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { PanelModule } from 'primeng/panel';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { MenuItem } from 'primeng/api';
+import { ScrollTopModule } from 'primeng/scrolltop';
 
 
 
@@ -76,7 +77,7 @@ import { MenuItem } from 'primeng/api';
     CalendarModule,
     PanelModule,
     TabMenuModule,
-    
+    ScrollTopModule
 
 
   ]

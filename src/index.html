@@ -15,10 +15,26 @@
 </head>
 <body>
   <app-root></app-root>
-  <!-- <script src="assets/plugins/jquery/jquery.min.js"></script>
   <script src="assets/plugins/jquery/jquery.min.js"></script>
+  <script src="assets/plugins/jquery/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  
+  <script>
+    $(document).ready(function() {
+        $(window).scroll(function(){
+                if(document.body.scrollTop > 300)
+                        $('#menufijo').fadeIn( "slow", function() { });
+                else    
+                        $('#menufijo').fadeOut( "slow", function() { });
+        });
+        $('a#srolltotop').click(function(){
+                $('html, body').animate({scrollTop:0}, 100);
+                return false;
+        });
+});
+    </script>
     
-    <script src="assets/plugins/bootstrap/js/popper.min.js"></script>
+    <!-- <script src="assets/plugins/bootstrap/js/popper.min.js"></script>
     <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script> -->
 </body>
 </html>

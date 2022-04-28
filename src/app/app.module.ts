@@ -5,14 +5,15 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
-import { CompanyServiceModule } from './companies/services/companyService.module';
+import { CompanyServiceModule } from './companies/services/companyservice.module';
 import { EmployeeserviceModule } from './employees/services/employeeService.module';
 import { PayrollModule } from './payroll/payroll.module';
 import localeES from '@angular/common/locales/en';
 import { registerLocaleData } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
-/* import { Ng2PageScrollModule } from 'ng2-page-scroll';
-import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core'; */
+import { Ng2PageScrollModule } from 'ng2-page-scroll';
+import { NgxPageScrollModule } from 'ngx-page-scroll';
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core'
 
 registerLocaleData(localeES, 'es');
 
@@ -38,8 +39,10 @@ registerLocaleData(localeES, 'es');
     EmployeeserviceModule,
     PayrollModule,
     DashboardRoutingModule,
-   /*  Ng2PageScrollModule,
-    NgxPageScrollCoreModule  */
+   Ng2PageScrollModule,
+   NgxPageScrollModule,
+    NgxPageScrollCoreModule
+   
    
   ],
   providers: [
