@@ -3,7 +3,7 @@
 
 
 
- html, body {
+  html, body {
     padding-top: 0rem; 
     background-color: var(--surface-c);
     font-family: var( --font-family );
@@ -47,4 +47,4 @@
         color:#fff; 
         text-shadow:1px 1px #5E8BC5;
         padding:0 0 0 10px;
-}
+} 

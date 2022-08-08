@@ -16,7 +16,7 @@
                             <input #input (keyup)="buscarEmployees( input.value )" class="form-control" type="search" pInputText placeholder="Buscar Empleado..." style="width: 43rem;">
                         </span> 
                         <div class="card flex justify-content-end flex-wrap">
-                            <p-button class="mr-4" icon="pi pi-user-plus" pTooltip="Nuevo Empleado" tooltipPosition="bottom"></p-button>
+                            <p-button routerLink="/employees/new/personal" class="mr-4" icon="pi pi-user-plus" pTooltip="Nuevo Empleado" tooltipPosition="bottom"></p-button>
                             <p-button class="mr-2" icon="pi pi-upload" pTooltip="Importar Empleado" tooltipPosition="bottom"></p-button>
                             <p-button icon="pi pi-download"pTooltip="Descargar Listado Empleado" tooltipPosition="bottom"></p-button>
                         </div>
@@ -25,25 +25,27 @@
                         <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
                     </div>
                 </ng-template>
-                <ng-template let-employee pTemplate="listItem">
+                <!-- <ng-template let-employee pTemplate="listItem">
                     <div class="p-col-12">
                         <div class="product-list-item">
                             <div class="product-list-detail">
-                                <div> <img [src]="employee.img" alt="empleado"></div>
+                                <div> 
+                                    <img class="border-circle w-6rem h-6rem m-2 bg-yellow-500 flex align-items-center justify-content-center" [src]="employee.img" alt="empleado">
+                                </div>
                                 <div class="product-name">{{employee.firstName}} {{employee.surname}}</div>
                                 <div class="product-description">{{employee.identification}}</div>
-                                <i class="pi pi-tag product-category-icon"></i><span class="product-category">{{employee.mail}}</span>
+                                <i class="pi pi-tag product-category-icon"></i><span class="product-category">{{employee.email}}</span>
                             </div>
                             <div class="product-list-action">
                                 <span class="product-price">{{employee.phone}}</span>
                             </div>
                         </div>
                     </div>
-                </ng-template>
+                </ng-template> -->
                 <ng-template let-employee pTemplate="gridItem">
                     
-                     <div class="p-col-12 p-md-4">
-                         <div class="product-grid-item card1 cursor-pointer surface-0" 
+                     <div>
+                         <div class="product-grid-item cardEmployee cursor-pointer surface-0" 
                                 (click)="veremployee(employee.id)" style="width: 25rem;">
                             <!-- <div class="product-grid-item-top">
                                 <div>
@@ -54,15 +56,21 @@
                                 </div>
                                
                             </div> -->
-                            <div class="product-grid-item-content">
-                                <div> <img [src]="employee.img" alt="empleado"></div>
-                                <div class="product-name">{{employee.firstName}} {{employee.surname}}</div>
-                                <div class="product-description">{{employee.identification}}</div>
-                            </div>
-                            <div class="product-grid-item-bottom">
-                                <!-- <span class="product-price">{{employee.email}}</span> -->
+                            
+                            <div>
+                                <div class="flex align-items-center justify-content-center"> 
+                                    <span *ngIf="employee.img"><img class="border-circle w-6rem h-6rem" [src]="employee.img" alt="empleado"></span>
+                                    <span *ngIf="!employee.img"><img src="assets/images/no-image.png" class="border-circle w-6rem h-6rem" alt="empleado"></span>
+                                              
+                                 </div>
                                
+                                <div class="product-name flex align-items-center justify-content-center">{{employee.firstName}} {{employee.surname}}</div>
+                                <div class="product-description flex align-items-center justify-content-center">{{employee.identification}}</div>
+                                <div class="product-description flex align-items-center justify-content-center">{{employee.cellPhone}}</div>
+                                <div class="product-description flex align-items-center justify-content-center mb-2">{{employee.email}}</div>
+                                
                             </div>
+                            
                         </div>
                     </div>
                 </ng-template>

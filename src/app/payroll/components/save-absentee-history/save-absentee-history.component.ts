@@ -5,7 +5,7 @@ import { DynamicDialogRef, DialogService } from 'primeng/dynamicdialog';
 import { ConfirmationService } from 'primeng/api';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { ConceptService } from 'src/app/companies/services/companyService.index';
-import { EmployeeService } from 'src/app/employees/services/employee.service';
+import { EmployeeService } from 'src/app/employees/services/employee/employee.service';
 import { GetEmployeeService } from '../../services/get-employee.service';
 import { PayrollService } from '../../services/payroll.service';
 import { PeriodService } from '../../services/period.service';

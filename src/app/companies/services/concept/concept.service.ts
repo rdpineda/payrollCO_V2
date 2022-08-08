@@ -71,31 +71,50 @@ export class ConceptService {
         
     }
 
+    getAllConceptNovelty(idCompany: string){
+      
+      let url = this.URL_SERVICIOS + '/concepts?isNovelty=True&company_id=' + idCompany + '&conceptGroup=DEDUCCION' + '&conceptGroup=NOSALARIAL' + '&conceptGroup=SALARIAL';
+      console.log(url)
+      return this.http.get( url )
+          .map( (resp: any) => {
+            
+            return resp;
+          });
+        
+    }
+
     obtenerConcept( id: string){
       
-      let url = this.URL_SERVICIOS + '/concept/' + id;
+      let url = this.URL_SERVICIOS + '/concepts/' + id;
+      return this.http.get( url )
+          .map( (resp: any) => resp.concept );
+    }
+
+    obtenerConceptCompany( id: string, company_id: string){
+      
+      let url = this.URL_SERVICIOS + '/concepts/' + id + '?' + company_id;
       return this.http.get( url )
           .map( (resp: any) => resp.concept );
     }
 
     obtenerConceptSalary(idcompany: string){
       
-      let url = this.URL_SERVICIOS + '/concept/category/salar/' + idcompany ;
+      let url = this.URL_SERVICIOS + '/concepts/category/salar/' + idcompany ;
       return this.http.get( url )
           .map( (resp: any) => resp.concept );
     }
 
     cargarConceptCompany( idcompany: string){
 
-      let url = this.URL_SERVICIOS + '/concept/' + idcompany;
-     
+      let url = this.URL_SERVICIOS + '/concepts?' + 'company_id=' + idcompany;
+     console.log('url',url)
       return this.http.get( url )
-          .map( (resp: any) => resp.concept );
+          .map( (resp: any) => resp );
     }
 
     cargarConceptCompanyActive( idcompany: string){
 
-      let url = this.URL_SERVICIOS + '/concept/' + idcompany + '/isActive';
+      let url = this.URL_SERVICIOS + '/concepts/' + idcompany + '/isActive';
      
       return this.http.get( url )
           .map( (resp: any) => resp.concept );
@@ -144,7 +163,7 @@ export class ConceptService {
 
 
     crearConceptStandard(  id: string){
-      const url = this.URL_SERVICIOS + '/concept/estandar/' + id;
+      const url = this.URL_SERVICIOS + '/concepts/estandar/' + id;
       return this.http.post( url, id )
           .map( (resp: any) => resp.concept);
     }
@@ -153,7 +172,7 @@ export class ConceptService {
  
     actualizarConcept( concept: Concept ){
 
-      let url = this.URL_SERVICIOS + '/concept/' + concept.id;
+      let url = this.URL_SERVICIOS + '/concepts/' + concept.id;
       url += '?token=' + this._usuarioService.token;
       return this.http.put( url, concept)
           .map( (resp: any) =>{

@@ -77,7 +77,6 @@ export class ListComponent implements OnInit {
     
     this._employeeService.cargarEmployeeCompany( id)
         .subscribe( (employee: any) => {
-          console.log(employee,'list')
           this.totalRegistros = employee.length;
           this.employees = employee;
          
@@ -97,16 +96,16 @@ export class ListComponent implements OnInit {
         });
   }
 
-  newemployee(){
+ /*  newemployee(){
 
-    this.router.navigate( ['/newemployee'] );
-  }
+    this.router.navigate( ['/employees/new'] );
+  } */
 
 
   buscarEmployees( termino: string){
 
     if ( termino.length <= 0 ){
-      console.log(termino,'hola')
+     
       this.getEmployees( this.empresa.id);
       return;
     }
@@ -114,7 +113,6 @@ export class ListComponent implements OnInit {
     this._employeeService.buscarEmployees( termino )
         .subscribe( resp => {
           this.employees = resp 
-          console.log(this.employees)
         });
 }
 

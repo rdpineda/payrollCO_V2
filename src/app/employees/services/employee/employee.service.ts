@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AuthService } from '../../auth/services/authservice.index';
-import { CompanyService } from '../../companies/services/companyService.index';
+import { AuthService } from '../../../auth/services/authservice.index';
+import { CompanyService } from '../../../companies/services/companyService.index';
 import Swal from 'sweetalert2';
-import { Employee} from '../models/employee.model';
-import { Company } from '../../companies/models/company.model';
+import { Employee} from '../../models/employee.model';
+import { Company } from '../../../companies/models/company.model';
 import { Router } from '@angular/router';
-import { SubirArchivoService } from './employeeService.index';
+import { SubirArchivoService } from '../employeeService.index';
 import { Observable } from 'rxjs';
 
 import { throwError } from 'rxjs';
@@ -110,7 +110,7 @@ export class EmployeeService {
       return this.http.put( url, employee, {headers: this.headers})
           .map( (resp: any) =>{
             Swal.fire({
-              text: 'Empleado Actualizado' + '' +  employee.firstname,
+              text: 'Empleado Actualizado' + ' ' +  employee.firstName,
               icon: 'success'
             });
             return resp;

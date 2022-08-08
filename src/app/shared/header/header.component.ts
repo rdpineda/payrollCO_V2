@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth/services/authservice.index';
 import { CompanyService } from '../../companies/services/companyService.index';
-
+import { ActivatedRoute } from '@angular/router';
 import { Usuario } from '../../auth/models/usuario.model';
 
 import { Company } from '../../companies/models/company.model';
@@ -16,9 +16,12 @@ import { MenuItem } from 'primeng/api';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styles: [
-  ]
+  styles: []
 })
+
+
+
+
 export class HeaderComponent implements OnInit {
 
   starDemoDay: Date = new Date();
@@ -40,17 +43,19 @@ export class HeaderComponent implements OnInit {
   company2: any = {};
   autenticado = 'n';
   registro: any = {};
-  
+  view: any={}
 
   empresa: any = {};
   empresaseleccionada: any = {};
  
   items!: MenuItem[];
+  menu!: MenuItem[];
 
  
 
   constructor( public _usuarioService: AuthService,
                public _companyService: CompanyService,
+               public activatedRoute: ActivatedRoute,
               // public _modalUploadService:ModalUploadService,
                public router: Router) {
 
@@ -79,10 +84,26 @@ export class HeaderComponent implements OnInit {
             
                 this.cargarCompanySelect(this.empresa.id);
                 
+              
                
                }
 
   ngOnInit(): void {
+
+    this.menu = [
+      {
+          items: [
+              {label: 'Inicio', routerLink: '/dashboard'},
+              {label: 'Información Empleado', routerLink: '/employees/list'},
+              {label: 'Información Empresa', routerLink: '/companies/config'},
+              {label: 'Nómina', routerLink: '/payroll/novelties'},
+              {label: 'Reportes'},
+          ]
+      },
+      
+  
+  ]; 
+   
 
     this.items = [
       
@@ -90,7 +111,7 @@ export class HeaderComponent implements OnInit {
       {
           items: [{
                   label: 'Mi perfil', 
-                  icon: 'pi pi-fw pi-plus',
+                  
               },
               {label: 'Cambiar Empresa'},
               {label: 'Suscripción'},
@@ -135,6 +156,28 @@ export class HeaderComponent implements OnInit {
     .subscribe ( resp => this.company2 = resp);
     
   }
+
+screen(){
+  console.log('view', this.view)
+
+  this.activatedRoute.params.subscribe( params =>{
+
+
+    this.view = params
+    if (!params[ 'id' ]) {
+            
+          
+        
+      this.router.navigate(['/dashboard']);
+    } else {
+        
+       
+        this.router.navigate(['/employees/list']);
+        
+      }
+}); 
+  
+}
 
 /*   crearEmpresa(){
     Swal.fire({

@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
 
   
   starDemoDay: Date = new Date();
-  demoDay = 50;
+  demoDay = 30;
   createUser: any;
   updateUser: any;
   idUser: any;
@@ -51,7 +51,7 @@ export class RegisterComponent implements OnInit {
   }
 
   registrarUsuario() {
-
+    
     if (this.formaRegister.invalid){
 
       return Object.values (this.formaRegister.controls).forEach( control =>{
@@ -109,6 +109,10 @@ export class RegisterComponent implements OnInit {
   campoEsValido( campo: string){
     return this.formaRegister.controls[campo].errors 
         && this.formaRegister.controls[campo].touched
+  }
+
+  este(){
+    console.log('boton')
   }
 
 }

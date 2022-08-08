@@ -34,6 +34,12 @@ import { PanelModule } from 'primeng/panel';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { MenuItem } from 'primeng/api';
 import { ScrollTopModule } from 'primeng/scrolltop';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { AccordionModule } from 'primeng/accordion';
+import { CarouselModule } from 'primeng/carousel';
+import { StepsModule } from 'primeng/steps';
+
+
 
 
 
@@ -45,7 +51,7 @@ import { ScrollTopModule } from 'primeng/scrolltop';
 
   exports: [
     ButtonModule,
-    CardModule,
+  
     InputTextModule,
     CheckboxModule,
     PasswordModule,
@@ -77,7 +83,12 @@ import { ScrollTopModule } from 'primeng/scrolltop';
     CalendarModule,
     PanelModule,
     TabMenuModule,
-    ScrollTopModule
+    ScrollTopModule,
+    RadioButtonModule,
+    AccordionModule,
+    CarouselModule,
+    StepsModule,
+    CardModule
 
 
   ]

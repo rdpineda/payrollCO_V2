@@ -1,0 +1,105 @@
+
+    <p-card>
+       <ng-template pTemplate="title">
+           Información Personal
+       </ng-template>
+      
+       <ng-template pTemplate="content">
+    <div class="p-fluid">
+
+<div class="formgrid grid">
+        <div class="field col-12 md:col-6">
+            <label for="tipodoc">Tipo de Documento</label>
+            <p-dropdown inputId="tipodoc" [(ngModel)]="personalInformation.tipodoc" [options]="identificationTypes" optionLabel="description" optionValue="id"></p-dropdown>
+        </div>
+
+        <div class="field col-12 md:col-6">
+            <label for="documento">Documento</label>
+            <input #documento="ngModel" id="documento" type="number" required pInputText [(ngModel)]="personalInformation.documento" [ngClass]="{'ng-dirty': (documento.invalid && submitted) || (documento.dirty && documento.invalid)}"> 
+            <small class="p-error" *ngIf="(documento.invalid && submitted) || (documento.dirty && documento.invalid)">Campo Requerido.</small>
+        </div>
+</div>
+
+<div class="formgrid grid">
+
+
+        <div class="field col-12 md:col-6">
+         <label for="pnombre">Primer Nombre</label>
+            <input #pnombre="ngModel" id="pnombre" type="text" required pInputText [(ngModel)]="personalInformation.pnombre" [ngClass]="{'ng-dirty': (pnombre.invalid && submitted) || (pnombre.dirty && pnombre.invalid)}"> 
+            <small *ngIf="(pnombre.invalid && submitted) || (pnombre.dirty && pnombre.invalid)" class="p-error">Campo Requerido.</small>
+        </div>
+        <div class="field col-12 md:col-6">
+            <label for="snombre">Segundo Nombre</label>
+            <input #snombre="ngModel" id="snombre" type="text" pInputText [(ngModel)]="personalInformation.snombre" [ngClass]="{'ng-dirty': (snombre.invalid && submitted) || (snombre.dirty && snombre.invalid)}"> 
+            
+        </div>
+</div>
+
+<div class="formgrid grid">
+
+
+    <div class="field col-12 md:col-6">
+     <label for="papellido">Primer Apellido</label>
+        <input #papellido="ngModel" id="papellido" type="text" required pInputText [(ngModel)]="personalInformation.papellido" [ngClass]="{'ng-dirty': (papellido.invalid && submitted) || (papellido.dirty && papellido.invalid)}"> 
+        <small *ngIf="(papellido.invalid && submitted) || (papellido.dirty && pnombre.invalid)" class="p-error">Campo Requerido.</small>
+    </div>
+    <div class="field col-12 md:col-6">
+        <label for="sapellido">Segundo Apellido</label>
+        <input #sapellido="ngModel" id="sapellido" type="text" pInputText [(ngModel)]="personalInformation.sapellido" [ngClass]="{'ng-dirty': (sapellido.invalid && submitted) || (sapellido.dirty && sapellido.invalid)}"> 
+        
+    </div>
+</div>
+
+<div class="formgrid grid">
+
+    <div class="field col-12 md:col-6">
+        <label for="genero">Género</label>
+        <p-dropdown inputId="genero" [(ngModel)]="personalInformation.genero" [options]="genders" optionLabel="description" optionValue="id"></p-dropdown>
+    </div>
+    
+    <div class="field col-12 md:col-6">
+        <label for="fnacimiento">Fecha de Nacimiento</label>
+        <p-calendar [(ngModel)]="date" [locale]="es" 
+        dateFormat="yy-mm-dd" inputId="fnacimiento" [showIcon]="true" yearRange="1900:2030"></p-calendar>
+        
+    </div>
+    <div class="field col-12 md:col-6">
+        <label for="sapellido">Segundo Apellido</label>
+        <input #sapellido="ngModel" locale="es"  id="sapellido" type="date" pInputText [(ngModel)]="personalInformation.sapellido" [ngClass]="{'ng-dirty': (sapellido.invalid && submitted) || (sapellido.dirty && sapellido.invalid)}"> 
+        
+    </div>
+
+    
+</div>
+  
+</div>
+
+
+        
+
+        
+           
+            
+
+            
+
+            
+                  
+
+               
+
+
+           
+       
+               
+           
+       </ng-template>
+       <ng-template pTemplate="footer">
+           <div class="grid grid-nogutter justify-content-end">
+               <p-button label="Siguiente" (onClick)="nextPage()" icon="pi pi-angle-right" iconPos="right"></p-button> 
+           </div>
+       </ng-template>
+  </p-card>
+ 
+
+

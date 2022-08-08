@@ -18,6 +18,7 @@ import {MenuItem} from 'primeng/api';
 import {DialogService, DynamicDialogRef} from 'primeng/dynamicdialog';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { GetEmployeeService } from '../../services/get-employee.service';
+import { stringify } from '@angular/compiler/src/util';
 
 declare var $: any;
 
@@ -26,7 +27,8 @@ declare var $: any;
   selector: 'app-novelties',
   templateUrl: './novelties.component.html',
   styleUrls: ['./novelties.component.scss'],
-  providers: [DialogService]
+  providers: [DialogService],
+  
 })
 export class NoveltiesComponent implements OnInit {
 
@@ -46,7 +48,7 @@ export class NoveltiesComponent implements OnInit {
   employees: any = {};
   employeesCompany: any = {};
   employeeMovements: any = [];
-  employeeMovementsPayroll: any = [];
+  employeeMovementsPayroll: any[] = [];
   period: any = {};
   empleado!: string;
   absenteeEmployee: any = {};
@@ -56,10 +58,10 @@ export class NoveltiesComponent implements OnInit {
   usuario: any = {};
   empresa: any = {};
   concept: any = {};
-
+  employeeSelects!: string
   indexTab: number = 0;
-
-  
+  activeItem:any;
+ 
 
   forma: FormGroup = this.fb.group({
    
@@ -101,6 +103,7 @@ export class NoveltiesComponent implements OnInit {
                           this.getPeriodByProcess(this.empresa.id)
 
                           this.employeeSelect = new EventEmitter();
+                         
                       
 
                }
@@ -110,17 +113,42 @@ export class NoveltiesComponent implements OnInit {
   ngOnInit(){
 
     this.items = [{
-      label: 'Options',
+    label:'Novedades',
       items: [{
-          label: 'Update',
-          icon: 'pi pi-refresh',
-         
+          label: 'Ausentismos',
+          command: () => {
+            this.showAbsentee(this.activeItem);
+        } 
       },
       {
-          label: 'Delete',
-          icon: 'pi pi-times',
-         
-      }
+          label: 'Horas Extras',
+          
+           command: () => {
+            this.showOverTime(this.activeItem);
+        } 
+          
+      },
+      {
+        label: 'Pagos Salariales',
+        command: () => {
+          this.show(this.activeItem, 'SALARIAL');
+      } 
+    },
+
+    {
+      label: 'Pagos No Salariales',
+      
+      command: () => {
+        this.show(this.activeItem, 'NOSALARIAL');
+    } 
+  },
+  {
+    label: 'Deducciones',
+    
+    command: () => {
+      this.show(this.activeItem, 'DEDUCCION');
+  } 
+},
       ]},
       
   ];
@@ -267,6 +295,8 @@ export class NoveltiesComponent implements OnInit {
 
 
   showOverTime(employeeCard: string) {
+    console.log('empleado seleccionado',employeeCard)
+    console.log('lllll',this.employeeSelects)
     this.ref= this.dialogService.open(SaveExtraHoursComponent,{
         header: 'Ingreso Horas Extras y Recargos',
         width: '50%',

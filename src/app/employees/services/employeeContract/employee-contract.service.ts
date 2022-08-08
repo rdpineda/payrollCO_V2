@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AuthService } from '../../auth/services/authservice.index';
-import { CompanyService } from '../../companies/services/companyService.index';
+import { AuthService } from '../../../auth/services/authservice.index';
+import { CompanyService } from '../../../companies/services/companyService.index';
 import Swal from 'sweetalert2';
-import { EmployeeContract } from '../models/employeeContract.model';
+import { EmployeeContract } from '../../models/employeeContract.model';
 
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { throwError } from 'rxjs';
 import { getLocaleDateFormat } from '@angular/common';
-import { SubirArchivoService } from './subir-archivo.service';
+import { SubirArchivoService } from '../subir-archivo.service';
 import { environment } from 'src/environments/environment';
 
 
@@ -41,7 +41,7 @@ export class EmployeeContractService  {
 
       let url = this.URL_SERVICIOS + '/employeeContracts?employee_id=' + idEmployee;
       return this.http.get( url, {headers: this.headers} )
-          .map( (resp: any) => resp );
+          .map( (resp: any) => resp.reverse() );
     }
 
     cargarEmployeeContractActive(idEmployee: string){

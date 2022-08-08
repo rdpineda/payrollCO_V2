@@ -1,18 +1,14 @@
 
 
-
- 
-  
-
 <p-scrollTop></p-scrollTop>
 
-<section class="fijo">
+<section class="fijo" >
 <app-header></app-header> 
- <div class="row bg-blue-700 text-gray-100 p-7 flex justify-content-between lg:justify-content-start align-items-start flex-wrap sidebar">
+ <div class="row bg-blue-500 text-gray-100 p-4 flex justify-content-between lg:justify-content-start align-items-start flex-wrap sidebar">
     
     <div class="col-1 profile-header-img mr-4">
         <!-- <img [src]="company.img | imagen: 'company'" alt="Compañia" width="100"> -->
-        <img [src]="company.img" alt="Compañia" width="100">
+        <img class="border-circle w-6rem h-6rem" [src]="company.img" alt="Compañia">
         <button pButton (click)="actualizarImagen( company )" pRipple type="button" label="Cambiar Logo" class="p-button-warning p-button-text"></button>
     </div>
     <div class="grid">
@@ -30,7 +26,7 @@
 
     <div class="flex justify-content-start flex-wrap card-container blue-container" style="background-color:white;">
 
-        <button [ngClass]="{'active': active === 1}" pageScroll (click)="onScroll(panel1, 1)" pButton pRipple type="button" label="INFORMACIÓN BÁSICA" class="flex align-items-center justify-content-center p-button-link font-bold"></button>
+        <button [ngClass]="{'active': active === 1}" pageScroll  (click)="onScroll(panel1, 1)" pButton pRipple type="button" label="INFORMACIÓN BÁSICA" class="flex align-items-center justify-content-center p-button-link font-bold"></button>
         <button [ngClass]="{'active': active === 2}" pageScroll  (click)="onScroll(panel2, 2)" pButton pRipple type="button" label="INFORMACIÓN DE PAGO" class="flex align-items-center justify-content-center p-button-link font-bold"></button>
         <button [ngClass]="{'active': active === 3}" pageScroll  (click)="onScroll(panel3, 3)" pButton pRipple type="button" label="INFORMACIÓN DE NOMINA" class="flex align-items-center justify-content-center p-button-link font-bold"></button>
         <button [ngClass]="{'active': active === 4}" pageScroll  (click)="onScroll(panel4, 4)" pButton pRipple type="button" label="CENTRO DE COSTOS" class="flex align-items-center justify-content-center p-button-link font-bold"></button>
@@ -50,492 +46,58 @@
 
 
 
-    <div #panel1 style="margin-top: 380px;">
+    <div #panel1 style="margin-top: 320px;">
       
-        
-            
-                
-        
-
-        
-            
-
-            <div class="grid">
-                <div class="col-4 text-center text-500">
-                    <div class= "row">
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        Información Básica 
-                    </div>
-                </div>
-                <div class="col-8">
-                <p-panel header="Información Básica" class="text-600">
-                    <ng-template pTemplate="icons">
-                        <button pButton pRipple type="button"  icon="pi pi-pencil" class="p-button-rounded p-button-primary p-button-text text-left">     
-                        </button> 
-                </ng-template> 
-                <form>
-        
-
-                <div class="grid">
-                    <div class="col-4"> 
-                    <div class="flex align-items-start justify-content-start">
-                        <span class="text-500 font-medium">Nit:</span></div>
-                    </div>
-                    <div class="col-8">
-                        <span class="text-400 align-items-start justify-content-start">{{company.identification}} - {{company.verificationNumber}}</span>
-                    </div>
-                    
-                </div>
-
-
-                <div class="grid">
-                    <div class="col-4"> 
-                    <div class="flex align-items-start justify-content-start">
-                        <span class="text-500 font-medium">Email:</span></div>
-                    </div>
-                    <div class="col-8"> 
-                        <span class="text-400 align-items-start justify-content-start">{{company.email}}</span>
-                    </div>
-                    
-                </div>
-
-
-                <div class="grid">
-                    <div class="col-4"> 
-                    <div class="flex align-items-start justify-content-start">
-                        <span class="text-500 font-medium">Dirección:</span></div>
-                    </div>
-                    <div class="col-8"> 
-                        <span class="text-400 align-items-start justify-content-start">{{company.address}}</span>
-                    </div>
-                    </div>
-
-
-                <div class="grid">
-                    <div class="col-4"> 
-                    <div class="flex align-items-start justify-content-start">
-                        <span class="text-500 font-medium mr-6">Telefono:</span> </div>
-                    </div>
-                    <div class="col-8"> 
-                        <span class="text-400 align-items-start justify-content-start">{{company.phone}}</span>
-                    </div>
-                </div>
-                   
-
-                <div class="grid">
-                    <div class="col-4"> 
-                    <div class="flex align-items-start justify-content-start">
-                        <span class="text-500 font-medium mr-7">Celular:</span></div>
-                    </div>
-                    <div class="col-8"> 
-                        <span class="text-400 align-items-start justify-content-start">{{company.cellphone}}</span>
-                    </div>
-                </div>
-
-
-                <div class="grid">
-                    <div class="col-4"> 
-                    <div class="flex align-items-start justify-content-start">
-                        <span class="text-500 font-medium mr-7">Pais:</span></div>
-                    </div>
-                    <div class="col-8"> 
-                        <span class="text-400 align-items-start justify-content-start">{{country.name}}</span>
-                    </div>
-                </div>
-
-
-                <div class="grid">
-                    <div class="col-4"> 
-                    <div class="flex align-items-start justify-content-start">
-                        <span class="text-500 font-medium mr-7">Departamento:</span></div>
-                    </div>
-                    <div class="col-8"> 
-                        <span class="text-400 align-items-start justify-content-start">{{state.name}}</span>
-                    </div>
-                </div>
-
-
-                <div class="grid">
-                    <div class="col-4"> 
-                    <div class="flex align-items-start justify-content-start">
-                        <span class="text-500 font-medium mr-7">Municipio:</span></div>
-                    </div>
-                    <div class="col-8"> 
-                        <span class="text-400 align-items-start justify-content-start">{{city.name}}</span>
-                    </div>
-                </div>
-
-
-                <div class="grid">
-                    <div class="col-4"> 
-                    <div class="flex align-items-start justify-content-start">
-                        <span class="text-500 font-medium mr-7">Representante Legal:</span></div> 
-                    </div> 
-                    <div class="col-8"> 
-                        <span class="text-400 align-items-start justify-content-start">{{company.legalRepresentant}}</span>
-                    </div>  
-                </div>
-
-
-                <div class="grid">
-                    <div class="col-4"> 
-                    <div class="flex align-items-start justify-content-start">
-                        <span class="text-500 font-medium mr-7">Fecha Fundación:</span></div>
-                    </div>
-                    <div class="col-8"> 
-                        <span class="text-400 align-items-start justify-content-start">{{company.fundationDate}}</span>
-                    </div>
-                </div>
-
-
-                <div class="grid">
-                    <div class="col-4"> 
-                    <div class="flex align-items-start justify-content-start">
-                        <span class="text-500 font-medium mr-7">Caja de Compensación:</span></div>
-                    </div>
-                    <div class="col-8"> 
-                        <span class="text-400 align-items-start justify-content-start">{{caja.name}}</span>
-                    </div>
-                </div>
-
-
-                <div class="grid">
-                    <div class="col-4"> 
-                    <div class="flex align-items-start justify-content-start">
-                        <span class="text-500 font-medium mr-7">Entidad de Riesgo:</span></div>
-                    </div>
-                    <div class="col-8"> 
-                        <span class="text-400 align-items-start justify-content-start">{{riesgo.name}}</span>
-                    </div>
-                </div>
-
-
-                </form>
-
-                </p-panel>
-            </div>
-            
-            </div>
+            <app-infoCompany></app-infoCompany>
     
        <hr>
     </div>
     <div #panel2 >
-        <div class="grid">
-            <div class="col-4 text-center text-500">
-                <div class= "row">
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    Información de Pago
-                </div>
-            </div>
-            <div class="col-8">
-            <p-panel header="Información de Pago" class="text-600">
-                <ng-template pTemplate="icons">
-                    <button pButton pRipple type="button"  icon="pi pi-pencil" class="p-button-rounded p-button-primary p-button-text text-left">     
-                    </button> 
-            </ng-template> 
-            <form>
-    
-
-            <div class="grid">
-                <div class="col-4"> 
-                <div class="flex align-items-start justify-content-start">
-                    <span class="text-500 font-medium">Periocidad de Pago:</span></div>
-                </div>
-                <div class="col-8">
-                    <span class="text-400 align-items-start justify-content-start">{{paymentFrequency.description}}</span>
-                </div>
-                
-            </div>
-
-
-            <div class="grid">
-                <div class="col-4"> 
-                <div class="flex align-items-start justify-content-start">
-                    <span class="text-500 font-medium">Forma de Pago:</span></div>
-                </div>
-                <div class="col-8"> 
-                    <span class="text-400 align-items-start justify-content-start">{{paymentMethod.description}}</span>
-                </div>
-                
-            </div>
-
-
-            <div class="grid">
-                <div class="col-4"> 
-                <div class="flex align-items-start justify-content-start">
-                    <span class="text-500 font-medium">Banco Dispersor:</span></div>
-                </div>
-                <div class="col-8"> 
-                    <span class="text-400 align-items-start justify-content-start">{{banks.name}}</span>
-                </div>
-                </div>
-
-
-            <div class="grid">
-                <div class="col-4"> 
-                <div class="flex align-items-start justify-content-start">
-                    <span class="text-500 font-medium mr-6">Tipo de Cuenta:</span> </div>
-                </div>
-                <div class="col-8"> 
-                    <span class="text-400 align-items-start justify-content-start">{{accountType.description}}</span>
-                </div>
-            </div>
-               
-
-            <div class="grid">
-                <div class="col-4"> 
-                <div class="flex align-items-start justify-content-start">
-                    <span class="text-500 font-medium mr-7">Número de Cuenta:</span></div>
-                </div>
-                <div class="col-8"> 
-                    <span class="text-400 align-items-start justify-content-start">{{companyPayment.accountNumber}}</span>
-                </div>
-            </div>
-
-            </form>
-
-            </p-panel>
-        </div>
         
-        </div>
-        
+        <app-paymentCompany></app-paymentCompany>
         <hr>
     </div>
         
     
     <div #panel3 >
       
-        <div  class="div bg-primary mt-2" id="t1">
-            <p-panel header="Información de Nómina">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </p-panel>
-    </div>
-        
+       <app-payrollCompany></app-payrollCompany>
+       <hr>
     </div>
 
-    <div #panel4 >
-      
-        <div  class="div bg-primary mt-2" id="t1">
-            <p-panel header="Centros de Costos">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </p-panel>
-    </div>
-        
+    <div #panel4>
+        <app-costCenter></app-costCenter>
+      <hr>
     </div>
 
     <div #panel5 >
       
-        <div  class="div bg-primary mt-2" id="t1">
-            <p-panel header="Areas">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </p-panel>
-    </div>
+        <app-area></app-area>
+        <hr>
+          
         
     </div>
 
     <div #panel6 >
       
-        <div  class="div bg-primary mt-2" id="t1">
-            <p-panel header="Sucursales">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </p-panel>
-    </div>
+        <app-subsidiary></app-subsidiary>
+        <hr>  
+        
         
     </div>
 
     <div #panel7 >
       
-        <div  class="div bg-primary mt-2" id="t1">
-            <p-panel header="Cargos">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </p-panel>
-    </div>
+        <app-position></app-position>
+        <hr> 
         
     </div>
    
-    <div #panel8 >
-      
-        <div  class="div bg-primary mt-2" id="t1">
-            <p-panel header="Conceptos">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </p-panel>
+    <div #panel8>
+      <app-concept></app-concept>
+      <hr> 
     </div>
-        
-</div>
+          
 </div>
 
     <p-scrollTop

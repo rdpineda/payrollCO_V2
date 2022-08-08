@@ -1,33 +1,41 @@
-import { Component, OnInit, VERSION  } from '@angular/core';
+import { Component, OnInit, VERSION,ViewChild, ElementRef   } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ModalUploadService } from 'src/app/components/modal-upload/modal-upload.service';
 import { EmployeeService } from '../../services/employeeService.index';
+import { Employee } from '../../models/employee.model';
 import {MenuItem} from 'primeng/api';
-
+import { PageScrollService } from 'ngx-page-scroll-core';
+import { DOCUMENT } from '@angular/common';
+import { Inject } from '@angular/core';
 
 
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
+  styleUrls: ['./employee.component.scss'],
   styles: [
   ]
 })
 export class EmployeeComponent implements OnInit {
 
+  @ViewChild('scroller1') scroller!: ElementRef;
+  active = 1;
+  items!: MenuItem[];
+  activeItem!: MenuItem;
+  scrollableItems!: MenuItem[];
+  activeItem2!: MenuItem;
+
   version = 'Angular: v' + VERSION.full;
 
   employee: any = {};
-  items!: MenuItem[];
+  
 
-    scrollableItems!: MenuItem[];
-
-    activeItem!: MenuItem;
-
-    activeItem2!: MenuItem;
 
   constructor(private activatedRoute: ActivatedRoute,
               private _employeeService: EmployeeService,
-              public _modalUploadServices: ModalUploadService
+              public _modalUploadServices: ModalUploadService,
+              public pageScrollServ: PageScrollService,
+              @Inject(DOCUMENT) private document: any
               ) { 
 
                 this.activatedRoute.params.subscribe( params =>{
@@ -43,34 +51,40 @@ export class EmployeeComponent implements OnInit {
       .subscribe( () =>  this.cargarEmployees( params[ 'id' ]));
     });
 
-    this.items = [
-      {label: 'Personal', icon: 'pi pi-fw pi-home'},
-      {label: 'Laboral', icon: 'pi pi-fw pi-calendar'},
-      {label: 'Contrato', icon: 'pi pi-fw pi-pencil'},
-      {label: 'Salario', icon: 'pi pi-fw pi-file'},
-      {label: 'Puesto de Trabajo', icon: 'pi pi-fw pi-cog'},
-      {label: 'Banco', icon: 'pi pi-fw pi-file'},
-      {label: 'Seguridad Social', icon: 'pi pi-fw pi-cog'},
-      {label: 'Recurrentes', icon: 'pi pi-fw pi-cog'}
-  ];
+    this.pageScrollServ.scroll({
+      document: this.document,
+      scrollTarget: '.theEnd',
+    });
 
-  this.scrollableItems = Array.from({ length: 50 }, (_, i) => ({ label: `Tab ${i + 1}`}));
-
-  this.activeItem = this.items[0];
-
-  this.activeItem2 = this.scrollableItems[0];
-    
+   
     
   }
+
+  onScroll(event: HTMLElement, i:any) {
+    this.pageScrollServ.scroll({
+      scrollTarget: event,
+      scrollOffset: 350,
+      document: this.document
+    });
+
+    this.active = i;
+  } 
 
   cargarEmployees( id: string ) {
     this._employeeService.cargarEmployees( id )
         .subscribe( employee => {
-          console.log('empleado',employee)
           this.employee = employee;
         });
 
   }
+
+  actualizarImagen( employee: Employee ){
+  
+    this._modalUploadServices.mostrarModal('employee', employee.id! );
+    
+  }
+
+
 
   
 

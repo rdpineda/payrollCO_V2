@@ -76,18 +76,13 @@
     </div>
 
     <div class="form-group text-center">
-        <div class="p-col-xs-12" primary-box
-        pRipple>
+        <div class="p-col-xs-12" primary-box>
+        <button pButton pRipple label="Guardar" icon="pi pi-user" class="p-button-text"  class="w-full" (click)="registrarUsuario()"></button>
 
-
-                    <button pButton type="submit" 
-                            label="Ingresar" 
-                            icon="pi pi-user" 
-                            class="w-full"
-                            
-                            [disabled]="formaRegister.invalid"></button>
+                    
         </div>
     </div>
+  
     <div class="form-group m-b-0">
         <div class="col-sm-12 text-center">
             <p>Tienes una cuenta? <a routerLink="/auth/login" class="text-info m-l-5"><b>Ingresa ahora</b></a></p>

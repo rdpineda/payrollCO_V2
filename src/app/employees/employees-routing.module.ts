@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, ExtraOptions } from '@angular/router';
 import { ListComponent } from './pages/list/list.component';
-
+import { NewComponent } from './pages/new/new.component';
 import { LoginComponent } from '../auth/pages/login/login.component';
 import { EmployeeComponent } from './pages/employee/employee.component';
+import { PersonalComponent } from './pages/new/personal/personal.component';
+import { NewEmployeeRoutingModule } from './pages/new/new-routing.module';
 
 const routes: Routes = [
   {
@@ -15,16 +17,22 @@ const routes: Routes = [
         component: ListComponent
       },
       {
+        path: 'new:personal',
+        component: NewComponent
+      },
+
+      /* {
+      path: 'personal', 
+      component: PersonalComponent
+      }, */
+
+      {
         path: ':id',
         component: EmployeeComponent
       },
       {
         path: '**',
         component: LoginComponent
-      },
-      {
-        path: ':id/#p9',
-        component: EmployeeComponent
       }
     ]
   }
@@ -38,7 +46,8 @@ const routes: Routes = [
     RouterModule.forChild( routes )
   ],
   exports: [
-    RouterModule
+    RouterModule,
+    NewEmployeeRoutingModule
   ]
 })
 export class EmployeesRoutingModule { }
